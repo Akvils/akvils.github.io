@@ -283,7 +283,7 @@ header[role="header"] nav ul > li {
 header[role="header"] nav ul > li > a {
   display: block;
   line-height: 72px;
-  color: #9d9d9d;
+  color: #777777;
 }
 
 header[role="header"] nav ul > li:hover a,
