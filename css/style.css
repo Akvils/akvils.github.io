@@ -318,7 +318,7 @@ header[role="header"] nav #menu-button span {
   height: 3px;
 
   width: 100%;
-  background: #111111;
+  background: #9d9d9d;
   opacity: 1;
   left: 0;
 
@@ -746,7 +746,7 @@ article[role="pge-title-content"].contact-header p a:hover {
 }
 
 .contat-from-wrapper input[type="submit"]:hover {
-  background-color: #663399;
+  background-color: #281e33;
 }
 
 /*== Work Details ==*/
