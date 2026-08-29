@@ -565,8 +565,8 @@ h1, h2, h3 {
 .resume-frame {
   display: block;
   width: 100%;
-  max-width: 850px;
-  height: 85vh;
+  max-width: 650px;
+  aspect-ratio: 2448 / 3964;
   margin: 0 auto;
   border-radius: var(--radius);
   overflow: hidden;
