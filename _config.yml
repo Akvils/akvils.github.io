@@ -1,0 +1,22 @@
+title: Akvil Sakhare
+description: >-
+  Product designer with a blend of design, engineering and meditation
+  backgrounds, creating user-centric and delightful product experiences.
+url: "https://akvils.github.io"
+author: Akvil Sakhare
+
+markdown: kramdown
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      nav: work
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - node_modules

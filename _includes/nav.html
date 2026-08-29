@@ -1,0 +1,11 @@
+<nav class="site-nav" aria-label="Primary">
+  <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+    <span></span><span></span><span></span>
+    <span class="visually-hidden">Menu</span>
+  </button>
+  <ul id="nav-menu" class="nav-menu">
+    <li{% if page.nav == "work" %} class="active"{% endif %}><a href="/">Work</a></li>
+    <li{% if page.nav == "about" %} class="active"{% endif %}><a href="/about.html">About</a></li>
+    <li{% if page.nav == "contact" %} class="active"{% endif %}><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>

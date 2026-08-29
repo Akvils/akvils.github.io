@@ -1,0 +1,79 @@
+professional:
+  - title: Zedge Marketplace
+    url: /zedge.html
+    thumb: /images/home-images/zedge.jpg
+    excerpt: Platform to sell digital content
+  - title: Bentley Personas
+    url: /bentleyuxr.html
+    thumb: /images/home-images/bentleyuxr.jpg
+    excerpt: User research to find out user personas and journeys
+  - title: Portico
+    url: /portico.html
+    thumb: /images/home-images/portico.jpg
+    excerpt: End-to-end HR and Payroll services
+  - title: Malwarebytes EDR
+    url: /edr.html
+    thumb: /images/home-images/edr.jpg
+    excerpt: Weapons to catch cyber terrorists
+  - title: Arch Analytics
+    url: /arch.html
+    thumb: /images/home-images/arch.jpg
+    excerpt: AI data capture and extraction
+  - title: Dozee
+    url: /dozee.html
+    thumb: /images/home-images/dozee.jpg
+    excerpt: Contactless health monitoring system
+  - title: Simhasth Kumbh Mela
+    url: /simhasth.html
+    thumb: /images/home-images/simhasth.jpg
+    excerpt: VR experience of the Kumbh Mela
+  - title: NTree
+    url: /ntree.html
+    thumb: /images/home-images/ntree.jpg
+    excerpt: Security and community management
+  - title: Key
+    url: /key.html
+    thumb: /images/home-images/key.jpg
+    excerpt: VR experience in the life of young monks of the Key monastery
+  - title: Dhanwise
+    url: /dhanwise.html
+    thumb: /images/home-images/dhanwise.jpg
+    excerpt: Consultation with financial advisors
+
+personal:
+  - title: Being Bliss
+    url: /beingbliss.html
+    thumb: /images/home-images/beingbliss.jpg
+    excerpt: A school for the science of consciousness
+  - title: The Allegory
+    url: /allegory.html
+    thumb: /images/home-images/cave.jpg
+    excerpt: VR experience of "The Allegory of the Cave"
+  - title: Memento Mori
+    url: /death.html
+    thumb: /images/home-images/death.jpg
+    excerpt: Interactive 3D-360 VR data visualisation of unnatural deaths in India
+  - title: Paritta
+    url: /paritta.html
+    thumb: /images/home-images/paritta.jpg
+    excerpt: Mobile app for protective verses
+  - title: Kancha
+    url: /kancha.html
+    thumb: /images/home-images/kancha.jpg
+    excerpt: A game of marbles in VR
+  - title: Explorations of Existence
+    url: /film.html
+    thumb: /images/home-images/film.jpg
+    excerpt: Seven short films
+  - title: Heal
+    url: /heal.html
+    thumb: /images/home-images/heal.jpg
+    excerpt: Therapeutic sharing space for people
+  - title: Integrity
+    url: /integrity.html
+    thumb: /images/home-images/integrity.jpg
+    excerpt: Productivity mobile app to maintain one's integrity
+  - title: Idea of Life
+    url: /story.html
+    thumb: /images/home-images/story.jpg
+    excerpt: A short visual story on water

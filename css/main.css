@@ -1,0 +1,616 @@
+/* ==========================================================================
+   Akvil Sakhare - design system
+   1. Tokens        2. Reset          3. Type
+   4. Layout shim   5. Header/Nav     6. Footer
+   7. Home/hero     8. Project grid   9. Case study
+   10. About        11. Contact       12. Utilities
+   ========================================================================== */
+
+/* 1. Tokens ---------------------------------------------------------------- */
+
+:root {
+  --color-bg: #faf8f6;
+  --color-surface: #ffffff;
+  --color-ink: #211c22;
+  --color-ink-soft: #55505a;
+  --color-ink-faint: #8d8791;
+  --color-line: #e6e1db;
+  --color-brand: #3a2640;
+  --color-brand-soft: #f1ecf1;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --measure: 1280px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 64px;
+  --space-6: 96px;
+  --space-7: 140px;
+
+  --radius: 6px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 2. Reset ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body,
+h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+::selection {
+  background-color: var(--color-brand);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 3. Type -------------------------------------------------------------------- */
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-ink);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* 4. Layout shim (compatibility grid for existing markup) -------------------- */
+
+.container,
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+}
+
+[class^="col-"] {
+  padding: 0 12px;
+  width: 100%;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .col-sm-12 { width: 100%; }
+  .col-sm-6 { width: 50%; }
+}
+
+@media (min-width: 992px) {
+  .col-md-12 { width: 100%; }
+  .col-md-8 { width: 66.6667%; }
+  .col-md-6 { width: 50%; }
+  .col-md-4 { width: 33.3333%; }
+}
+
+@media (min-width: 1200px) {
+  .col-lg-12 { width: 100%; }
+  .col-lg-6 { width: 50%; }
+}
+
+/* 5. Header / nav -------------------------------------------------------------- */
+
+.site-header {
+  padding: var(--space-4) 0 var(--space-3);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo img {
+  width: 36px;
+  height: 36px;
+}
+
+.site-nav {
+  position: relative;
+}
+
+.nav-menu {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.nav-menu li a {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.nav-menu li a:hover,
+.nav-menu li.active a {
+  color: var(--color-brand);
+  border-color: var(--color-brand);
+}
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 70;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-ink);
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 767px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    background: var(--color-bg);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+
+  .nav-menu.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-menu li a {
+    font-family: var(--font-display);
+    font-size: 32px;
+  }
+}
+
+/* 6. Footer --------------------------------------------------------------------- */
+
+.site-footer {
+  padding: var(--space-6) var(--space-3) var(--space-5);
+  text-align: center;
+}
+
+.site-footer .site-logo {
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+
+.site-footer .site-logo img {
+  width: 44px;
+  height: auto;
+}
+
+.footer-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.footer-nav a {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+.footer-nav a:hover {
+  color: var(--color-brand);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-brand-soft);
+  color: var(--color-brand);
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.social-icons a:hover {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+.copyright {
+  font-size: 12px;
+  color: var(--color-ink-faint);
+}
+
+/* 7. Home / hero ------------------------------------------------------------------ */
+
+.page-title {
+  padding: var(--space-5) 0 var(--space-4);
+  max-width: 720px;
+}
+
+.page-title h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: var(--space-2);
+}
+
+.page-title p {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+.page-title p b {
+  color: var(--color-ink);
+}
+
+/* 8. Project grid ------------------------------------------------------------------ */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  padding-bottom: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-card {
+  position: relative;
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-brand);
+  aspect-ratio: 4 / 3;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.project-card.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.project-card:hover img {
+  transform: scale(1.04);
+}
+
+.project-card .card-body {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: var(--space-3);
+  background: linear-gradient(to top, rgba(20, 14, 22, 0.88), rgba(20, 14, 22, 0));
+  color: #fff;
+}
+
+.project-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.project-card p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.section-heading {
+  padding: var(--space-6) 0 var(--space-2);
+  max-width: 640px;
+}
+
+.section-heading h2 {
+  font-size: clamp(26px, 4vw, 34px);
+  margin-bottom: var(--space-2);
+}
+
+.section-heading p {
+  color: var(--color-ink-soft);
+  font-size: 17px;
+}
+
+/* 9. Case study --------------------------------------------------------------------- */
+
+.work-details {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-3) 0;
+}
+
+.work-details .row {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+  margin-bottom: var(--space-4);
+}
+
+[role="work-title"] h2 {
+  font-size: clamp(30px, 4vw, 42px);
+  margin-bottom: var(--space-1);
+}
+
+[role="work-title"] a {
+  font-weight: 700;
+  color: var(--color-brand);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.work-details section p {
+  font-size: 17px;
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-2);
+}
+
+.work-details section strong {
+  color: var(--color-ink);
+}
+
+.work-images.grid ul {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--space-6);
+}
+
+.work-images.grid ul li {
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.work-images.grid ul li iframe {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  display: block;
+}
+
+.work-images.grid ul li.video-wide video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.container-iframe {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.responsive-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* 10. About ------------------------------------------------------------------------- */
+
+.wrap-about h2 {
+  font-size: clamp(30px, 4vw, 40px);
+  margin-bottom: var(--space-2);
+}
+
+.wrap-about p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+.wrap-about p b {
+  color: var(--color-ink);
+}
+
+.about-photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.resume-heading {
+  font-size: clamp(28px, 4vw, 40px);
+  padding: var(--space-6) 0 var(--space-3);
+}
+
+.resume-actions {
+  padding-bottom: var(--space-3);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: var(--color-brand);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.btn:hover {
+  background: var(--color-ink);
+  transform: translateY(-1px);
+}
+
+.resume-frame {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: 85vh;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+}
+
+/* 11. Contact ------------------------------------------------------------------------ */
+
+.contact-header {
+  padding-top: var(--space-5);
+}
+
+.contact-header h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: var(--space-2);
+}
+
+.contact-header p {
+  font-size: 19px;
+  color: var(--color-ink-soft);
+}
+
+.contact-header .email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: var(--space-3);
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--color-brand);
+  border-bottom: 2px solid var(--color-brand);
+  padding-bottom: 4px;
+}
+
+/* 12. Utilities ----------------------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
