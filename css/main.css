@@ -170,8 +170,11 @@ h1, h2, h3 {
 
 .site-header .wrap {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
 }
 
 .site-logo img {
@@ -336,6 +339,8 @@ h1, h2, h3 {
 .page-title {
   padding: var(--space-5) 0 var(--space-4);
   max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .page-title h2 {
